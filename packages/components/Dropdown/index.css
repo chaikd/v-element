@@ -1,0 +1,19 @@
+.v-dropdown {
+  --v-dropdown-hover-bg-color: var(--v-color-primary-light-8);
+  --v-dropdown-hover-text-color: var(--v-color-primary);
+  .v-dropdown__content {
+    .v-dropdown__content__item {
+      padding: 8px 16px;
+      cursor: pointer;
+      &:hover {
+        background-color: var(--v-dropdown-hover-bg-color);
+        color: var(--v-dropdown-hover-text-color)
+      }
+      &.is-disabled {
+        color: var(--v-text-color-disabled);
+        background-color: var(--v-fill-color-light);
+        cursor: not-allowed;
+      }
+    }
+  }
+}

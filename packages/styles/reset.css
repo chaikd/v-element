@@ -1,0 +1,16 @@
+body {
+  font-family: var(--v-font-family);
+  font-size: var(--v-font-size-base);
+  font-weight: 400;
+}
+
+a {
+  color: var(--v-color-primary);
+  &:hover,
+  &:focus {
+    color: var(--v-color-primary-dark-2);
+  }
+  &:active {
+    color: var(--v-color-primary-light-3);
+  }
+}

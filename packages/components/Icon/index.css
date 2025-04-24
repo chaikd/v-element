@@ -1,0 +1,13 @@
+.v-icon {
+  color: el-icon-color;
+  font-size: el-icon-size;
+  line-height: el-icon-size;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+@each $color in primary, success, warning, danger, info {
+  .v-icon--$(color) {
+    color: var(--v-color-$(color));
+  }
+}

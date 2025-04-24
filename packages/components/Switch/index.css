@@ -1,0 +1,93 @@
+.v-switch {
+  --v-switch-on-color: var(--v-color-success);
+  --v-switch-off-color: var(--v-color-danger);
+  --v-switch-diabled-bg-color: var(--v-disabled-bg-color);
+  --v-switch-disabled-core-color: var(--v-fill-color-light);
+  --v-switch-font-size-small: var(--v-font-size-small);
+  --v-switch-font-size-medium: var(--v-font-size-medium);
+  --v-switch-font-size-large: var(--v-font-size-large);
+  --v-switch-core-inner-disbled-bg-color: var(--v-fill-color-dark);
+  --v-switch-height-small: 24px;
+  --v-switch-height-medium: 32px;
+  --v-switch-height-large: 40px;
+  --v-switch-border-radius-small: 4px;
+  --v-switch-border-radius-medium: 8px;
+  --v-switch-border-radius-large: 16px;
+
+  --v-switch-bg-color: var(--v-switch-off-color);
+  --v-switch-font-size: var(--v-switch-font-size-medium);
+  --v-switch-height: var(--v-switch-height-medium);
+  --v-switch-border-radius: var(--v-switch-border-radius-medium);
+  --v-switch-core-inner-bg-color: var(--v-color-white);
+  --v-switch-text-color: var(--v-color-white);
+
+  display: inline-flex;
+  font-size: var(--v-switch-font-size);
+  height: var(--v-switch-height);
+  vertical-align: middle;
+  cursor: pointer;
+  .v-switch__input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  .v-switch__core {
+    display: flex;
+    align-items: center;
+    border-radius: calc(var(--v-switch-height)/ 2);
+    background-color: var(--v-switch-bg-color);
+    padding: 2px;
+    transition: all 0.3s ease;
+    .v-switch__core__inner {
+      width: calc(var(--v-switch-height) - 4px);
+      height: calc(var(--v-switch-height) - 4px);
+      border-radius: 50%;
+      background-color: var(--v-switch-core-inner-bg-color);
+      text-align: center;
+      .v-switch__core__inner__icon {
+        color: var(--v-switch-bg-color);
+      }
+    }
+    .v-switch__core__active,
+    .v-switch__core__inactive {
+      color: var(--v-switch-text-color);
+      overflow: hidden;
+      transition: all 0.3s ease;
+      text-align: center;
+    }
+    .v-switch__core__active {
+      width: 0;
+      opacity: 0;
+    }
+    .v-switch__core__inactive {
+      opacity: 1;
+    }
+  }
+  &.v-switch--checked {
+    .v-switch__core {
+      --v-switch-bg-color: var(--v-switch-on-color);
+      .v-switch__core__active {
+        opacity: 1;
+      }
+      .v-switch__core__inactive {
+        opacity: 0;
+      }
+    }
+  }
+  &.v-switch--disabled {
+    --v-switch-text-color: var(--v-text-color-disabled);
+    --v-switch-core-inner-bg-color: var(--v-switch-core-inner-disbled-bg-color);
+
+    cursor: not-allowed;
+    .v-switch__core {
+      --v-switch-bg-color: var(--v-switch-diabled-bg-color);
+    }
+  }
+  @each $val in small, large {
+    &.v-switch--$(val) {
+      --v-switch-font-size: var(--v-switch-font-size-$(val));
+      --v-switch-height: var(--v-switch-height-$(val));
+      --v-switch-border-radius: var(--v-switch-border-radius-$(val));
+    }
+  }
+}

@@ -1,0 +1,137 @@
+/* Button component styles */
+.v-button {
+  --v-button-font-weight: var(--v-font-weight-primary);
+  --v-button-border-color: var(--v-border-color);
+  --v-button-bg-color: var(--v-fill-color-blank);
+  --v-button-text-color: var(--v-text-color-regular);
+  --v-button-disabled-text-color: var(--v-disabled-text-color);
+  --v-button-disabled-bg-color: var(--v-fill-color-blank);
+  --v-button-disabled-border-color: var(--v-border-color-light);
+  --v-button-divide-border-color: rgba(255, 255, 255, .5);
+  --v-button-hover-text-color: var(--v-color-primary);
+  --v-button-hover-bg-color: var(--v-color-primary-light-9);
+  --v-button-hover-border-color: var(--v-color-primary-light-7);
+  --v-button-active-text-color: var(--v-button-hover-text-color);
+  --v-button-active-border-color: var(--v-color-primary);
+  --v-button-active-bg-color: var(--v-button-hover-bg-color);
+  --v-button-outline-color: var(--v-color-primary-light-5);
+  --v-button-hover-link-text-color: var(--v-text-color-secondary);
+  --v-button-active-color: var(--v-text-color-primary);
+  --v-button-size-large: val(--v-font-size-large);
+  --v-button-size: val(--v-font-size);
+  --v-button-size-small: val(--v-font-size-small);
+  
+  padding: 8px 15px;
+  font-size: var(--v-font-size-base);
+  border-radius: var(--v-border-radius-base);
+
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  line-height: 1;
+  height: 32px;
+  white-space: nowrap;
+  cursor: pointer;
+  color: var(--v-button-text-color);
+  text-align: center;
+  box-sizing: border-box;
+  outline: none;
+  transition: .1s;
+  font-weight: var(--v-button-font-weight);
+  -webkit-user-select: none;
+  user-select: none;
+  vertical-align: middle;
+  -webkit-appearance: none;
+  background-color: var(--v-button-bg-color);
+  border: var(--v-border);
+  border-color: var(--v-button-border-color);
+
+  &:hover {
+    color: var(--v-button-hover-text-color);
+    border-color: var(--v-button-hover-border-color);
+    background-color: var(--v-button-hover-bg-color);
+    outline: none;
+  }
+  &:active {
+    color: var(--v-button-active-text-color);
+    border-color: var(--v-button-active-border-color);
+    background-color: var(--v-button-active-bg-color);
+    outline: none;
+  }
+  &.is-disabled {
+    color: var(--v-button-disabled-text-color);
+    border-color: var(--v-button-disabled-border-color);
+    background-color: var(--v-button-disabled-bg-color);
+    cursor: not-allowed;
+  }
+  &.is-plain {
+    color: var(--v-button-text-color);
+    background-color: transparent;
+    border-color: var(--v-button-border-color);
+    &:hover {
+      color: var(--v-button-hover-text-color);
+      border-color: var(--v-button-hover-border-color);
+      background-color: transparent;
+    }
+    &:active {
+      color: var(--v-button-active-text-color);
+      border-color: var(--v-button-active-border-color);
+      background-color: transparent;
+    }
+  }
+  &.is-circle {
+    padding: 8px;
+    border-radius: var(--v-border-radius-circle);
+  }
+  &.is-round {
+    border-radius: var(--v-border-radius-round);
+  }
+  &.is-link {
+    color: var(--v-button-hover-link-text-color);
+    background-color: transparent;
+    border-color: transparent;
+    &:hover {
+      color: var(--v-button-hover-text-color);
+      border-color: var(--v-button-hover-border-color);
+      background-color: transparent;
+    }
+    &:active {
+      color: var(--v-button-active-text-color);
+      border-color: var(--v-button-active-border-color);
+      background-color: transparent;
+    }
+  }
+  &.v-button--small {
+    --v-button-size: var(--v-button-size-small);
+    padding: 0 10px;
+    font-size: var(--v-font-size-small);
+    height: 28px;
+  }
+  &.v-button--large {
+    --v-button-size: var(--v-button-size-large);
+    padding: 0 20px;
+    font-size: var(--v-font-size-large);
+    height: 36px;
+  }
+  
+  @each $val in primary, success, warning, info, danger {
+    &.v-button--$(val) {
+      --v-button-text-color: var(--v-color-white);
+      --v-button-bg-color: var(--v-color-$(val));
+      --v-button-border-color: var(--v-color-$(val));
+      --v-button-outline-color: var(--v-color-$(val)-light-5);
+      --v-button-active-color: var(--v-color-$(val)-dark-2);
+      --v-button-hover-text-color: var(--v-color-white);
+      --v-button-hover-link-text-color: var(--v-color-$(val)-light-5);
+      --v-button-hover-bg-color: var(--v-color-$(val)-light-3);
+      --v-button-hover-border-color: var(--v-color-$(val)-light-3);
+      --v-button-active-bg-color: var(--v-color-$(val)-dark-2);
+      --v-button-active-border-color: var(--v-color-$(val)-dark-2);
+      --v-button-disabled-text-color: var(--v-color-white);
+      --v-button-disabled-bg-color: var(--v-color-$(val)-light-5);
+      --v-button-disabled-border-color: var(--v-color-$(val)-light-5);
+    }
+  }
+}
+
+

@@ -1,0 +1,83 @@
+.v-input {
+  --v-input-text-color: var(--v-text-color-regular);
+  --v-input-border: var(--v-border-color);
+  --v-input-hover-border: var(--v-border-color-hover);
+  --v-input-focus-border: var(--v-color-primary);
+  --v-input-transparent-border: 0 0 0 1px transparent inset;
+  --v-input-border-color: var(--v-border-color);
+  --v-input-border-radius: var(--v-border-radius-base);
+  --v-input-bg-color: var(--v-fill-color-blank);
+  --v-input-icon-color: var(--v-text-color-placeholder);
+  --v-input-placeholder-color: var(--v-text-color-placeholder);
+  --v-input-hover-border-color: var(--v-border-color-hover);
+  --v-input-clear-hover-color: var(--v-text-color-secondary);
+  --v-input-focus-border-color: var(--v-color-primary);
+  
+  --v-input-font-size-small: 14px;
+  --v-input-font-size-md: 16px;
+  --v-input-font-size-large: 18px;
+  --v-input-icon-size-small: 10px;
+  --v-input-icon-size-md: 12px;
+  --v-input-icon-size-large: 14px;
+  --v-input-padding-small: 4px 7px;
+  --v-input-padding-md: 4px 11px;
+  --v-input-padding-large: 4px 15px;
+
+  --v-input-icon-size: var(--v-input-icon-size-md);
+  --v-input-font-size: var(--v-input-font-size-md);
+  --v-input-padding: var(--v-input-padding-md);
+
+  display: inline-block;
+  width: 240px;
+  border: 1px solid var(--v-input-border);
+  border-radius: var(--v-border-radius);
+  padding: var(--v-input-padding);
+  font-size: var(--v-input-font-size);
+  box-sizing: border-box;
+  .v-input-body {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    .v-input__field {
+      min-width: 0;
+      flex: 1;
+      outline: none;
+      border: none;
+      font-size: inherit;
+      color: var(--v-input-text-color);
+      background-color: var(--v-input-bg-color);
+      &::placeholder {
+        color: var(--v-input-placeholder-color);
+      }
+    }
+    &.v-input--disabled {
+      background-color: var(--v-fill-color-blank);
+      cursor: not-allowed;
+      .v-input__field {
+        color: var(--v-text-color-disabled);
+        cursor: not-allowed;
+      }
+    }
+    .v-input-clear {
+      cursor: pointer;
+      color: var(--v-input-icon-color);
+      font-size: var(--v-input-icon-size);
+    }
+    .v-input__prefix{
+      margin-left: 0;
+    }
+    .v-input-icon {
+      margin-left: 4px;
+      color: var(--v-input-icon-color);
+      font-size: var(--v-input-icon-size);
+    }
+  }
+  @each $val in small, large {
+    &.v-input--$(val) {
+      --v-input-font-size: var(--v-input-font-size-$(val));
+      --v-input-padding: var(--v-input-padding-$(val));
+      --v-input-icon-size: var(--v-input-icon-size-$(val));
+    }
+  }
+}
