@@ -28,5 +28,5 @@ export type iconProps = {
   spinReverse?: boolean
 
   color?: string
-  type?: string
+  type?: 'primary'| 'success'| 'warning'| 'danger'| 'info'
 }

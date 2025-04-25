@@ -199,8 +199,8 @@ const resetValidate = () => {
       </VCollapseItem>
     </template>
   </VCollapse>
-  <VIcon icon="house" color="red"></VIcon>
-  <VIcon icon="user-secret" size="2xl"></VIcon>
+  <VIcon icon="house" color="red" rotation="90"></VIcon>
+  <VIcon icon="user-secret" size="2xl" flip="both"></VIcon>
   <VIcon icon="user-secret" size="2xl" type="danger"></VIcon>
   <!-- <testComponent msg="test use"></testComponent> -->
   {{ dropdownSelected }}
